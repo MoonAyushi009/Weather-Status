@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder= 'templates')
 
 @app.route("/")
 def visitors():
@@ -40,7 +40,7 @@ def weather_stats():
     return render_template("index.html", weather=weather_data, count=visitors_count)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
 
 #Windows
